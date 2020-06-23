@@ -4,10 +4,10 @@
   <form [formGroup]="flintFormGroup" name="flintFormGroup">
     <h2 class="text-center">Facebook</h2>
     <div class="form-group">
-      <input type="email" class="form-control" placeholder="Email" formControlName="email">
+      <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
       <p>
       </p>
-      <input type="password" class="form-control" placeholder="Password" formControlName="password">
+      <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-secondary btn-block" (click)="saveFlint()">Login</button>

@@ -10,7 +10,7 @@ import { ApiServiceService } from '../api-service.service';
 export class FlintpageComponent implements OnInit {
 
   flintFormGroup: FormGroup;
-  getFlintValue: any;
+  getFlintValue: any
   constructor(private formBuilder: FormBuilder, private service: ApiServiceService) { }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class FlintpageComponent implements OnInit {
   }
 
   saveFlint() {
-    this.flintFormGroup.value.flintId = this.flintFormGroup.value;
+    // this.flintFormGroup.value.flintId = this.flintFormGroup.value;
     this.service.saveFlint(this.flintFormGroup.value).subscribe(res => {
       console.log(res);
     },
