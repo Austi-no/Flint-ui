@@ -1,0 +1,48 @@
+<div class="card my-5">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <button type="submit" class="btn btn-secondary btn-block">GetHackked</button>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <marquee behavior="right" direction=""><b style="color: red;letter-spacing: 10px;word-spacing: 20px;">The
+            Following Account have
+            been
+            hacked
+            successfully</b></marquee>
+      </div>
+
+      <div class="col-md-2">
+
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary  btn-block" (click)="getFlint()">GetHackked</button>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flint of flintList;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{ flint.email }}</td>
+          <td>{{ flint.password }}</td>
+          <td><button type="submit" class="btn btn-danger" (click)="deleteflint(flint.id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
