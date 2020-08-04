@@ -21,28 +21,35 @@
 
       <div class="col-md-2">
         <div class="form-group">
-          <button type="submit" class="btn btn-primary  btn-block" (click)="getFlint()">GetHackked</button>
+          <button (click)="goback()" class="ui right floated primary button mt-3">
+            <i class="reply icon"></i>
+            Back
+          </button>
         </div>
       </div>
     </div>
+    <div class="ui segment">
+      <table class="ui blue table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flint of flintList;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{ flint.email }}</td>
+            <td>{{ flint.password }}</td>
+            <td>
+              <i class="fa fa-trash ml-2" aria-hidden="true" style="color:red;" (click)="deleteflint(flint.id)">
+              </i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Email</th>
-          <th scope="col">Password</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let flint of flintList;let i=index">
-          <td>{{i+1}}</td>
-          <td>{{ flint.email }}</td>
-          <td>{{ flint.password }}</td>
-          <td><button type="submit" class="btn btn-danger" (click)="deleteflint(flint.id)">Delete</button></td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>

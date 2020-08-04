@@ -41,7 +41,7 @@ export class FlintlistComponent implements OnInit {
         });
   }
 
-  getFlint() {
+  goback() {
     this.router.navigate(['/'])
 
 

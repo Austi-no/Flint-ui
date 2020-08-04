@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServiceService } from '../api-service.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-flintpage',
@@ -11,8 +12,9 @@ import { Router } from '@angular/router';
 export class FlintpageComponent implements OnInit {
 
   flintFormGroup: FormGroup;
+  submitted: boolean;
 
-  constructor(private router: Router, private service: ApiServiceService, private fb: FormBuilder) { }
+  constructor(private router: Router, private service: ApiServiceService, private fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -30,19 +32,32 @@ export class FlintpageComponent implements OnInit {
   }
 
 
-  saveFlint() {
-    this.service.saveFlint(this.flintFormGroup.value).subscribe(res => {
-      this.flintFormGroup.reset();
-      console.log(res);
+  saveFlint(): any {
+    this.submitted = true;
+    // if (this.flintFormGroup.invalid) {
+    //   this.toastr.warning('Empty Form cannot be submitted!', 'ERROR!');
 
+    //   return;
+    // }
+
+    this.service.saveFlint(this.flintFormGroup.value).subscribe(res => {
+      console.log(res)
+      this.flintFormGroup.reset();
+
+      this.toastr.success('Login Seccessful!', 'Redirecting...!');
+      
+      window.location.reload();
+      this.submitted = false;
     },
       error => {
-        console.log("Error Occurred")
+        this.submitted = false;
+        this.toastr.error(error.status + ': ' + error.error.message, "Error!");
+        console.log(error.error.message)
       });
   }
 
 
-  getFlint() {
+  fetchFlint() {
     this.service.getFlints().subscribe(res => {
       // this.getFlintValue = res;
       this.gotoUserList()
