@@ -34,12 +34,6 @@ export class FlintpageComponent implements OnInit {
 
   saveFlint(): any {
     this.submitted = true;
-    // if (this.flintFormGroup.invalid) {
-    //   this.toastr.warning('Empty Form cannot be submitted!', 'ERROR!');
-
-    //   return;
-    // }
-
     this.service.saveFlint(this.flintFormGroup.value).subscribe(res => {
       console.log(res)
       this.flintFormGroup.reset();
